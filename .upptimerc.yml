@@ -1,0 +1,89 @@
+# Upptime Configuration
+# Documentation: https://upptime.js.org/docs/configuration
+
+owner: ferran7e
+repo: status
+
+# Status page settings
+status-website:
+  cname: # Add custom domain here if desired (e.g., status.managemystr.com)
+  baseUrl: /status
+  logoUrl: https://managemystr.com/favicon.svg
+  name: Service Status
+  theme: light
+  navbar:
+    - title: Homepage
+      href: https://managemystr.com
+
+# Monitoring configuration
+sites:
+  # ===================
+  # ManageMySTR
+  # ===================
+  - name: ManageMySTR Platform
+    url: https://platform.managemystr.com
+    icon: https://managemystr.com/favicon.svg
+
+  - name: ManageMySTR API
+    url: https://platform.managemystr.com/api/user/credits
+    expectedStatusCodes:
+      - 401  # Returns 401 when not authenticated (means API is up)
+
+  # ===================
+  # Site 2 - UPDATE THESE
+  # ===================
+  # - name: Site 2
+  #   url: https://your-site-2.com
+
+  # ===================
+  # Site 3 - UPDATE THESE
+  # ===================
+  # - name: Site 3
+  #   url: https://your-site-3.com
+
+  # ===================
+  # External Dependencies
+  # ===================
+  - name: Clerk Auth
+    url: https://api.clerk.com/health
+    expectedStatusCodes:
+      - 200
+      - 404  # Clerk doesn't have a public health endpoint, 404 means server responds
+
+  - name: Stripe API
+    url: https://api.stripe.com/healthcheck
+    expectedStatusCodes:
+      - 200
+
+  - name: Vercel
+    url: https://vercel.com/api/www/status
+    expectedStatusCodes:
+      - 200
+      - 404
+
+  - name: Census API
+    url: https://tigerweb.geo.census.gov/arcgis/rest/services
+    expectedStatusCodes:
+      - 200
+
+# Notifications (optional - add later)
+# notifications:
+#   - type: slack
+#     channel: status-alerts
+#   - type: email
+#     to: alerts@managemystr.com
+
+# Incident labels
+workflowSchedule:
+  graphs: "0 0 * * *"      # Daily graph updates
+  responseTime: "0 23 * * *"  # Daily response time
+  staticSite: "0 1 * * *"     # Daily site rebuild
+  summary: "0 0 * * *"        # Daily summary
+  updateTemplate: "0 0 1 * *" # Monthly template update
+  updates: "0 3 * * *"        # Daily updates
+  uptime: "*/5 * * * *"       # Check every 5 minutes
+
+# Commits settings
+commitMessages:
+  commitAuthorName: "Upptime Bot"
+  commitAuthorEmail: "upptime@managemystr.com"
