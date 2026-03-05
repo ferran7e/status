@@ -7,10 +7,12 @@ This repository powers the status page for our services.
 ## Monitored Services
 
 ### ManageMySTR
+
 - Platform website
 - API endpoints
 
 ### External Dependencies
+
 - Clerk Authentication
 - Stripe Payments
 - Vercel Hosting
@@ -26,6 +28,7 @@ This repository powers the status page for our services.
 ## Configuration
 
 Edit `.upptimerc.yml` to:
+
 - Add/remove monitored sites
 - Change status page settings
 - Configure notifications
