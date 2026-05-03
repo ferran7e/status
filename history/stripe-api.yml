@@ -1,7 +1,7 @@
 url: https://api.stripe.com/healthcheck
 status: up
 code: 200
-responseTime: 64
-lastUpdated: 2026-05-02T23:15:39.461Z
+responseTime: 113
+lastUpdated: 2026-05-03T23:15:49.563Z
 startTime: 2026-03-05T20:32:07.596Z
 generator: Upptime <https://github.com/upptime/upptime>
